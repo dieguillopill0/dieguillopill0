@@ -16,6 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errores[] = "La edad debe ser un número positivo.";
     }
 
+    if (empty($_POST['correo electrónico'])) {
+        $errores[] = "El correo electrónico es obligatorio.";
+    } elseif (!filter_var($_POST['correo electrónico'], FILTER_VALIDATE_EMAIL)) {
+        $errores[] = "El correo electrónico no es válido.";
+    }
+
     if (strlen($contraseña) < 6) {
         $errores[] = "La contraseña debe tener al menos 6 caracteres.";
     }

@@ -20,6 +20,9 @@
         <label for="edad">Edad:</label>
         <input type="number" id="edad" name="edad" required>
 
+        <label for="correo  electrónico">Correo electrónico:</label>
+        <input type="email" id="correo electrónico" name="correo electrónico" required>
+
         <label for="contraseña">contraseña</label>
         <input type="password" id="contraseña" name="contraseña" required>
 
