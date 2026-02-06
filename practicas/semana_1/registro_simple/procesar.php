@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
     
     else {
-        echo "<h2>Rellena bien el mugre formulario bro:</h2>";
+        echo "<h2>Rellena los espacios correctamente:</h2>";
         echo "<ul>";
         foreach ($errores as $error) {
             echo "<li>" . $error . "</li>";
