@@ -2,39 +2,41 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Encuesta</title>
+    <title>Solicitud de Trabajo</title>
     <link rel="stylesheet" href="assets/style.css">
-
-
 </head>
 <body>
 
-<div class="form-container">
-    <h1>Encuesta de Programación</h1>
-    <form action="procesar.php" method="POST">
+<h2>Formulario de Aplicación</h2>
 
-        <label>Nombre:</label>
-        <input type="text" name="nombre" required>
+<?php
+if (isset($_GET['error'])) {
+    echo "<p style='color:red;'>Todos los campos son obligatorios.</p>";
+}
 
-        <label>Edad:</label>
-        <input type="number" name="edad" required>
+if (isset($_GET['ok'])) {
+    echo "<p style='color:green;'>Solicitud enviada correctamente.</p>";
+}
+?>
 
-        <label>¿Te gusta programar?</label>
-        <select name="gusta">
-            <option value="si">Sí</option>
-            <option value="no">No</option>
-        </select>
+<form action="procesar.php" method="POST">
 
-        <label>Lenguaje favorito:</label>
-        <input type="radio" name="lenguaje" value="php"> PHP
-        <input type="radio" name="lenguaje" value="python"> Python
-        <input type="radio" name="lenguaje" value="java"> Java
+    <p><strong>1. ¿Área a la que aplicas?</strong></p>
+    <input type="radio" name="area" value="Desarrollo" required> Desarrollo<br>
+    <input type="radio" name="area" value="Diseño"> Diseño<br>
+    <input type="radio" name="area" value="Marketing"> Marketing<br><br>
 
-        <br><br>
-        <button type="submit">Enviar</button>
+    <p><strong>2. Habilidades que posees:</strong></p>
+    <input type="checkbox" name="habilidades[]" value="Trabajo en equipo"> Trabajo en equipo<br>
+    <input type="checkbox" name="habilidades[]" value="Comunicación"> Comunicación<br>
+    <input type="checkbox" name="habilidades[]" value="Resolución de problemas"> Resolución de problemas<br><br>
 
-    </form>
-</div>
+    <p><strong>3. ¿Por qué deberíamos contratarte?</strong></p>
+    <textarea name="mensaje" rows="4" cols="40" required></textarea><br><br>
+
+    <button type="submit">Enviar solicitud</button>
+
+</form>
 
 </body>
 </html>

@@ -1,25 +1,17 @@
 body {
-    background-color: #f0ebf8;
-    font-family: Arial, sans-serif;
-}
-
-.form-container {
-    background: white;
-    width: 400px;
-    margin: 50px auto;
+    font-family: Arial;
+    background: #f2f2f2;
     padding: 20px;
-    border-radius: 10px;
 }
 
-input, select, button {
-    width: 100%;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    padding: 8px;
+h2 {
+    color: #333;
+}
+
+textarea {
+    width: 300px;
 }
 
 button {
-    background-color: #673ab7;
-    color: white;
-    border: none;
+    padding: 5px 10px;
 }
