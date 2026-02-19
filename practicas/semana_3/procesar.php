@@ -1,18 +1,52 @@
 <?php
 
-include("validaciones.php");
-
-if (!empty($errores)) {
-    header("Location: index.php?error=1");
+// Verificar que venga por método POST
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    header("Location: index.php");
     exit();
 }
 
-$area = $_POST["area"];
-$habilidades = implode(", ", $_POST["habilidades"]);
-$mensaje = $_POST["mensaje"];
+// Validar que existan los datos
+if (!isset($_POST['experiencia']) || 
+    !isset($_POST['habilidades']) || 
+    !isset($_POST['area'])) {
 
-/* Aquí podrías guardar en base de datos */
+    echo "Faltan datos del formulario.";
+    exit();
+}
 
-/* Redirigir si todo salió bien */
-header("Location: index.php?ok=1");
-exit();
+$experiencia = $_POST['experiencia'];
+$habilidades = $_POST['habilidades'];
+$area = $_POST['area'];
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<h2>Datos enviados</h2>
+
+<p><strong>Experiencia:</strong> <?php echo $experiencia; ?></p>
+
+<p><strong>Habilidades:</strong></p>
+<ul>
+<?php
+foreach ($habilidades as $habilidad) {
+    echo "<li>" . $habilidad . "</li>";
+}
+?>
+</ul>
+
+<p><strong>Área seleccionada:</strong> <?php echo $area; ?></p>
+
+<br>
+<a href="index.php">Regresar</a>
+
+</body>
+</html>

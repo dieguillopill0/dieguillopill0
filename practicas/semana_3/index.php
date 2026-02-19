@@ -1,40 +1,39 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Solicitud de Trabajo</title>
+    <title>Formulario de Trabajo</title>
     <link rel="stylesheet" href="assets/style.css">
+    <script src="js/validaciones.js"></script>
 </head>
 <body>
 
-<h2>Formulario de Aplicación</h2>
+<h2>Aplicación de Trabajo</h2>
 
-<?php
-if (isset($_GET['error'])) {
-    echo "<p style='color:red;'>Todos los campos son obligatorios.</p>";
-}
+<form action="procesar.php" method="POST" onsubmit="return validarFormulario();">
 
-if (isset($_GET['ok'])) {
-    echo "<p style='color:green;'>Solicitud enviada correctamente.</p>";
-}
-?>
+    <!-- RADIO -->
+    <p>1. ¿Tienes experiencia?</p>
+    <input type="radio" name="experiencia" value="Si"> Sí
+    <input type="radio" name="experiencia" value="No"> No
 
-<form action="procesar.php" method="POST">
+    <!-- CHECKBOX -->
+    <p>2. Selecciona tus habilidades:</p>
+    <input type="checkbox" name="habilidades[]" value="Trabajo en equipo"> Trabajo en equipo
+    <input type="checkbox" name="habilidades[]" value="Responsable"> Responsable
+    <input type="checkbox" name="habilidades[]" value="Puntual"> Puntual
 
-    <p><strong>1. ¿Área a la que aplicas?</strong></p>
-    <input type="radio" name="area" value="Desarrollo" required> Desarrollo<br>
-    <input type="radio" name="area" value="Diseño"> Diseño<br>
-    <input type="radio" name="area" value="Marketing"> Marketing<br><br>
+    <!-- SELECT -->
+    <p>3. Área a la que aplicas:</p>
+    <select name="area" id="area">
+        <option value="">-- Selecciona una opción --</option>
+        <option value="Ventas">Ventas</option>
+        <option value="Sistemas">Sistemas</option>
+        <option value="Administracion">Administración</option>
+    </select>
 
-    <p><strong>2. Habilidades que posees:</strong></p>
-    <input type="checkbox" name="habilidades[]" value="Trabajo en equipo"> Trabajo en equipo<br>
-    <input type="checkbox" name="habilidades[]" value="Comunicación"> Comunicación<br>
-    <input type="checkbox" name="habilidades[]" value="Resolución de problemas"> Resolución de problemas<br><br>
-
-    <p><strong>3. ¿Por qué deberíamos contratarte?</strong></p>
-    <textarea name="mensaje" rows="4" cols="40" required></textarea><br><br>
-
-    <button type="submit">Enviar solicitud</button>
+    <br><br>
+    <button type="submit">Enviar</button>
 
 </form>
 
