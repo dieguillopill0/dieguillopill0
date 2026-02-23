@@ -38,5 +38,5 @@ function validarFormulario() {
         return false;
     }
 
-    return true; // Si todo está correcto, se envía
+    return true;
 }

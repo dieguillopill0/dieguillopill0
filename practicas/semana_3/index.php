@@ -2,37 +2,37 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Formulario de Trabajo</title>
+    <title>Formulario</title>
     <link rel="stylesheet" href="assets/style.css">
     <script src="js/validaciones.js"></script>
 </head>
 <body>
 
-<h2>Aplicación de Trabajo</h2>
+<h2>Formulario de Registro</h2>
 
-<form action="procesar.php" method="POST" onsubmit="return validarFormulario();">
+<form method="POST" action="procesar.php" onsubmit="return validarFormulario();">
 
     <!-- RADIO -->
-    <p>1. ¿Tienes experiencia?</p>
-    <input type="radio" name="experiencia" value="Si"> Sí
-    <input type="radio" name="experiencia" value="No"> No
+    <label>Experiencia:</label><br>
+    <input type="radio" name="experiencia" value="Principiante"> Principiante<br>
+    <input type="radio" name="experiencia" value="Intermedio"> Intermedio<br>
+    <input type="radio" name="experiencia" value="Avanzado"> Avanzado<br><br>
 
     <!-- CHECKBOX -->
-    <p>2. Selecciona tus habilidades:</p>
-    <input type="checkbox" name="habilidades[]" value="Trabajo en equipo"> Trabajo en equipo
-    <input type="checkbox" name="habilidades[]" value="Responsable"> Responsable
-    <input type="checkbox" name="habilidades[]" value="Puntual"> Puntual
+    <label>Habilidades:</label><br>
+    <input type="checkbox" name="habilidades[]" value="HTML"> HTML<br>
+    <input type="checkbox" name="habilidades[]" value="CSS"> CSS<br>
+    <input type="checkbox" name="habilidades[]" value="JavaScript"> JavaScript<br><br>
 
     <!-- SELECT -->
-    <p>3. Área a la que aplicas:</p>
+    <label>Área de interés:</label><br>
     <select name="area" id="area">
-        <option value="">-- Selecciona una opción --</option>
-        <option value="Ventas">Ventas</option>
-        <option value="Sistemas">Sistemas</option>
-        <option value="Administracion">Administración</option>
-    </select>
+        <option value="">Selecciona un área</option>
+        <option value="Frontend">Frontend</option>
+        <option value="Backend">Backend</option>
+        <option value="Base de Datos">Base de Datos</option>
+    </select><br><br>
 
-    <br><br>
     <button type="submit">Enviar</button>
 
 </form>

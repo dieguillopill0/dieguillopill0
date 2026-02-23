@@ -1,17 +1,16 @@
 <?php
 
-// Verificar que venga por método POST
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     header("Location: index.php");
     exit();
 }
 
-// Validar que existan los datos
 if (!isset($_POST['experiencia']) || 
     !isset($_POST['habilidades']) || 
     !isset($_POST['area'])) {
 
-    echo "Faltan datos del formulario.";
+    echo "<h3>Error: Faltan datos.</h3>";
+    echo '<a href="index.php">Regresar</a>';
     exit();
 }
 
@@ -30,7 +29,7 @@ $area = $_POST['area'];
 </head>
 <body>
 
-<h2>Datos enviados</h2>
+<h2>Formulario procesado correctamente</h2>
 
 <p><strong>Experiencia:</strong> <?php echo $experiencia; ?></p>
 
