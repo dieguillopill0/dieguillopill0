@@ -1,24 +1,26 @@
 <?php
 
+function limpiarTexto($texto) {
+    return ucfirst(strtolower(trim($texto)));
+}
 
+function validarEdad($edad) {
+    return filter_var($edad, FILTER_VALIDATE_INT) && $edad > 0;
+}
 
+function convertirAJSON($datos) {
+    return json_encode($datos, JSON_PRETTY_PRINT);
+}
 
-
-
-
-
-
-
-
-function convertirDesdeJSON($json) {
+function convertirDeJSON($json) {
     return json_decode($json, true);
 }
 
+function calcularAntiguedad($fechaIngreso) {
 
-function calcularAntiguedad($fecha){
-    $fechaLibro= strtotime($fecha);
-    $diferencia = time() - $fechaLibro;
-
-    return floor($diferencia / (365 * 24 * 60 * 60));
+    $fechaIngreso = strtotime($fechaIngreso);
+    $fechaActual = time(); 
+    $diferencia = $fechaActual - $fechaIngreso;
+    return floor($diferencia / (60 * 60 * 24 * 365)); // Retorna la antigüedad en años
 }
 ?>
