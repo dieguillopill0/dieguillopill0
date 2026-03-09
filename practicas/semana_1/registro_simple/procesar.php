@@ -12,9 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errores[] = "El nombre es obligatorio.";
     }
 
-    if ($edad <= 0) {
-        $errores[] = "La edad debe ser un número positivo.";
-    }
+    if ($edad <= 15) {
+        $errores[] = "La edad debe ser mayor a 15 años.";
+    } 
 
     if (empty($_POST['correo'])) {
         $errores[] = "El correo electrónico es obligatorio.";
