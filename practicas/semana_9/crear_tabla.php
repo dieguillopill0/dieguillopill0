@@ -1,21 +1,20 @@
 <?php
-
-require_once 'conexion.php';
-
+require_once "config.php";
 $conexion = new mysqli($host, $user, $pass, $db);
 
-if($conexion->connect_error){
-    die("error:" . $conexion->connect_error);
+if ($conexion->connect_error) {
+    die("Error: " . $conexion->connect_error);
 }
-$sql = "CREATE TABLE IF NOT EXISTS usuarios (
+
+$sql = "CREATE TABLE IF NOT EXISTS alumnos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100),
     carrera VARCHAR(100)
 )";
 
-if($conexion->query($sql) === true){
-    echo "tabla crada / ya existe";
-} else{
-    echo " error: " . $conexion->error;
+if ($conexion->query($sql) === TRUE) {
+    echo "Tabla creada correctamente";
+} else {
+    echo "Error: " . $conexion->error;
 }
 ?>

@@ -1,12 +1,11 @@
 <?php
-
 require_once "config.php";
 
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+$conexion = new mysqli($host, $user, $pass);
+
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
 }
 
-echo 'Connected successfully';
-
+echo "Conexión al servidor exitosa";
 ?>
