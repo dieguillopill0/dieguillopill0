@@ -6,7 +6,7 @@ if ($conexion->connect_error) {
     die("Error: " . $conexion->connect_error);
 }
 
-$sql = "INSERT INTO alumnos (nombre, carrera) VALUES ('Juan Pérez', 'Sistemas')";
+$sql = "INSERT INTO alumnos (nombre, carrera) VALUES ('karyme jooan', 'mecatronnica')";
 
 if ($conexion->query($sql) === TRUE) {
     echo "Registro insertado con éxito";
