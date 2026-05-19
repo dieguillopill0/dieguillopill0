@@ -1,2 +1,1 @@
-taxi|12
-kesio|100
+tortillas|21

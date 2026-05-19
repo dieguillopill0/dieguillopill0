@@ -1,0 +1,2 @@
+comida|100
+bebidas|50
